@@ -1,0 +1,34 @@
+{
+  "name": "threenode",
+  "version": "1.0.0",
+  "description": "An example of running three.js on a Node.js server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guiherzog/cab432-assignment2.git"
+  },
+  "keywords": [
+    "Node.js",
+    "Three.js",
+    "Scaling",
+    "ELB",
+    "Particle"
+  ],
+  "author": "Guilherme Herzog & Lucas Carneiro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guiherzog/cab432-assignment2/issues"
+  },
+  "homepage": "https://github.com/guiherzog/cab432-assignment2#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "nodemon": "^1.11.0",
+    "socket.io": "latest",
+    "formidable": "^1.0.17",
+    "node-static": "latest",
+    "gify": "latest"
+  }
+}
