@@ -52,8 +52,6 @@ app.post('/upload', function(req, res){
 
     // parse the incoming request containing the form data
   form.parse(req);
-
-
 });
 
 app.use('/result.html', (req, res) => {
@@ -64,3 +62,9 @@ app.use('/result.html', (req, res) => {
 var server = app.listen(3000, function(){
   console.log('Server listening on port 3000');
 });
+
+console.log('Server listening to errors...')
+app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  res.status(500).send('Something broke!')
+})
