@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/guiherzog/cab432-assignment2#readme",
   "dependencies": {
-    "appmetrics": "^1.1.2",
     "express": "^4.14.0",
     "formidable": "^1.0.17",
     "gify": "latest",

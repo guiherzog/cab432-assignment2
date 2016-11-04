@@ -6,9 +6,6 @@ var fs = require('fs');
 var gify = require('gify');
 var path = require('path');
 
-var appmetrics = require('appmetrics')
-var monitoring = appmetrics.monitor();
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req, res){
