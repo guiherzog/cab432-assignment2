@@ -40,6 +40,19 @@ app.post('/upload', function(req, res){
   // res.sendFile(path.join(__dirname, 'uploads/a.pdf'));
   var output = path.join(__dirname, 'public/uploads/movie.gif');
 
+  // every time the form returns an error in the middle of the upload,
+  // log it to the server
+  form.on('error', function(err) {
+    console.log(err.stack)
+    res.status(500).send('Something broke!')
+  });
+
+  // every time the client aborts the upload,
+  // log it to the server
+  form.on('aborted', function() {
+    console.log('Upload aborted by user!')
+  });
+
   // once all the files have been uploaded, send a response to the client
   form.on('end', function() {
     var input = path.join(__dirname, 'public/uploads/'+file_url);
@@ -62,9 +75,3 @@ app.use('/result.html', (req, res) => {
 var server = app.listen(3000, function(){
   console.log('Server listening on port 3000');
 });
-
-console.log('Server listening to errors...')
-app.use(function (err, req, res, next) {
-  console.error(err.stack)
-  res.status(500).send('Something broke!')
-})
