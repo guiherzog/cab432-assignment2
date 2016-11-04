@@ -93,11 +93,4 @@ var server = app.listen(3000, function(){
   console.log('Server listening on port 3000');
 });
 
-monitoring.on('cpu', function (cpu) {
-    console.log('[' + new Date(cpu.time) + '] CPU: ' + cpu.process);
-});
-
-monitoring.on('memory', function (memory) {
-    console.log('[' + new Date(memory.time) + '] Memory: ' + memory.physical_used/(1024*1024) +'/'+memory.physical_total/(1024*1024));
-});
 
