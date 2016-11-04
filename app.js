@@ -23,6 +23,15 @@ app.post('/upload', function(req, res){
   // specify that we want to allow the user to upload multiple files in a single request
   form.multiples = false;
 
+  form.onPart = function (part) {
+    if(!part.filename || part.filename.match(/\.(mkv|avi|mp4)$/i)) {
+        this.handlePart(part);
+    }
+    else {
+        console.log(part.filename + ' is not allowed');
+        res.end("file_extension");
+    }
+  }
   // store all uploads in the /uploads directory
   form.uploadDir = path.join(__dirname, 'public/uploads');
 
@@ -35,10 +44,7 @@ app.post('/upload', function(req, res){
     file_url = file.name;
   });
 
-  console.log('New file uploaded. \n Sending file to user...' + file_url);
-
-  // res.sendFile(path.join(__dirname, 'uploads/a.pdf'));
-  var output = path.join(__dirname, 'public/uploads/movie.gif');
+  console.log('New file uploaded. \n Sending file to user...');
 
   // every time the form returns an error in the middle of the upload,
   // log it to the server
@@ -55,6 +61,7 @@ app.post('/upload', function(req, res){
 
   // once all the files have been uploaded, send a response to the client
   form.on('end', function() {
+    var output = path.join(__dirname, 'public/uploads/movie.gif');
     var input = path.join(__dirname, 'public/uploads/'+file_url);
     gify(input, output, function(err){
       if (err) throw err;
