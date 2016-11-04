@@ -80,11 +80,6 @@ app.post('/upload', function(req, res){
   form.parse(req);
 });
 
-app.use('/result.html', (req, res) => {
-  res.setHeader("content-type", "image/gif");
-  fs.createReadStream("./uploads/a.pdf").pipe(res);
-});
-
 var server = app.listen(3000, function(){
   console.log('Server listening on port 3000');
 });
