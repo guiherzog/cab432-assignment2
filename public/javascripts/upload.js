@@ -31,7 +31,8 @@ $('#upload-input').on('change', function(){
           if (data == "file_extension")
             $(".result-msg").text("File Extension Not Allowed.")
           else{
-            $(".result-msg").text("File uploaded, click here in a few minutes to download your converted video.");
+            $('.progress-bar').html('Done');
+            $(".result-msg").text("Video successfully converted, click here to download your gif.");
             $(".result-link").attr("href", data);
           }
       },
@@ -53,7 +54,7 @@ $('#upload-input').on('change', function(){
 
             // once the upload reaches 100%, set the progress bar text to done
             if (percentComplete === 100) {
-              $('.progress-bar').html('Done');
+              $('.progress-bar').html('Converting...');
             }
 
           }
