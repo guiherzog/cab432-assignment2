@@ -65,8 +65,9 @@ app.post('/upload', function(req, res){
     var input = path.join(__dirname, 'public/uploads/'+file_url);
     gify(input, output, function(err){
       if (err) throw err;
+      console.log("Gif is finished! " + new Date());
     });
-
+    console.log("Gif is finished! " + new Date());
     res.end("http://"+req.headers.host+"/uploads/movie.gif");
   });
 
