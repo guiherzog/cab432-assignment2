@@ -24,11 +24,12 @@
   },
   "homepage": "https://github.com/guiherzog/cab432-assignment2#readme",
   "dependencies": {
+    "appmetrics": "^1.1.2",
     "express": "^4.14.0",
-    "nodemon": "^1.11.0",
-    "socket.io": "latest",
     "formidable": "^1.0.17",
+    "gify": "latest",
     "node-static": "latest",
-    "gify": "latest"
+    "nodemon": "^1.11.0",
+    "socket.io": "latest"
   }
 }

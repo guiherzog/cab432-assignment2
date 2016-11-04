@@ -67,6 +67,12 @@ app.post('/upload', function(req, res){
 
     file_without_extension = file_url.split(".");
     file_url = file_without_extension[0];
+
+    var d = new Date();
+    var datestring = "-" + d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear() + "--" +d.getHours() + "-" + d.getMinutes() + "-" + d.getSeconds() + "-" + d.getMilliseconds();
+
+    file_url += datestring
+
     console.log(file_url)
 
     var output = path.join(__dirname, 'public/uploads/'+file_url+".gif");
