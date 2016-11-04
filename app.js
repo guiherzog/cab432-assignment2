@@ -69,15 +69,19 @@ app.post('/upload', function(req, res){
     console.log(file_url)
 
     var output = path.join(__dirname, 'public/uploads/'+file_url+".gif");
+
     gify(input, output, function(err){
-      if (err) throw err;
-      console.log("Gif is finished! " + new Date());
+      if (err)
+        throw err;
+      else{
+        var s = fs.statSync(output);
+        console.log('Gif size: %smb', s.size / 1024 / 1024 | 0);
+        res.end("http://"+req.headers.host+"/uploads/"+file_url+".gif");
+      }
     });
-    console.log("Gif is finished! " + new Date());
-    res.end("http://"+req.headers.host+"/uploads/"+file_url+".gif");
   });
 
-    // parse the incoming request containing the form data
+  // parse the incoming request containing the form data
   form.parse(req);
 });
 
