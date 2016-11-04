@@ -69,7 +69,7 @@ app.post('/upload', function(req, res){
     file_url = file_without_extension[0];
 
     var d = new Date();
-    var datestring = d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear() + "--" +d.getHours() + "-" + d.getMinutes() + "-" + d.getSeconds() + "-" + d.getMilliseconds();
+    var datestring = "-" + d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear() + "--" +d.getHours() + "-" + d.getMinutes() + "-" + d.getSeconds() + "-" + d.getMilliseconds();
 
     file_url += datestring
 
