@@ -28,9 +28,12 @@ $('#upload-input').on('change', function(){
       processData: false,
       contentType: false,
       success: function(data){
-          console.log('upload successful!\n' + data);
-          $(".result-msg").text("Click here to download.");
-          $(".result-link").attr("href", data);
+          if (data == "file_extension")
+            $(".result-msg").text("File Extension Not Allowed.")
+          else{
+            $(".result-msg").text("Click here to download.");
+            $(".result-link").attr("href", data);
+          }
       },
       xhr: function() {
         // create an XMLHttpRequest
