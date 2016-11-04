@@ -61,23 +61,24 @@ app.post('/upload', function(req, res){
 
   // once all the files have been uploaded, send a response to the client
   form.on('end', function() {
-    var output = path.join(__dirname, 'public/uploads/movie.gif');
+
     var input = path.join(__dirname, 'public/uploads/'+file_url);
+
+    file_without_extension = file_url.split(".");
+    file_url = file_without_extension[0];
+    console.log(file_url)
+
+    var output = path.join(__dirname, 'public/uploads/'+file_url+".gif");
     gify(input, output, function(err){
       if (err) throw err;
       console.log("Gif is finished! " + new Date());
     });
     console.log("Gif is finished! " + new Date());
-    res.end("http://"+req.headers.host+"/uploads/movie.gif");
+    res.end("http://"+req.headers.host+"/uploads/"+file_url+".gif");
   });
 
     // parse the incoming request containing the form data
   form.parse(req);
-});
-
-app.use('/result.html', (req, res) => {
-  res.setHeader("content-type", "image/gif");
-  fs.createReadStream("./uploads/a.pdf").pipe(res);
 });
 
 var server = app.listen(3000, function(){

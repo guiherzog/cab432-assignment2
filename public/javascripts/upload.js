@@ -31,7 +31,7 @@ $('#upload-input').on('change', function(){
           if (data == "file_extension")
             $(".result-msg").text("File Extension Not Allowed.")
           else{
-            $(".result-msg").text("Click here to download.");
+            $(".result-msg").text("File uploaded, click here in a few minutes to download your converted video.");
             $(".result-link").attr("href", data);
           }
       },
