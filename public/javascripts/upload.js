@@ -49,7 +49,7 @@ $('#upload-input').on('change', function(){
             percentComplete = parseInt(percentComplete * 100);
 
             // update the Bootstrap progress bar with the new percentage
-            $('.progress-bar').text(percentComplete + '%');
+            $('.progress-bar').text('Uploading '+percentComplete + '%');
             $('.progress-bar').width(percentComplete + '%');
 
             // once the upload reaches 100%, set the progress bar text to done
